@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* CSS for hover effect */
+.card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    transform: scale(0);
+    transform-origin: center;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    /* Scale the card on hover */
+    background-color: rgba(0, 0, 0, 0.1);
+    /* Change the background color on hover */
+}
+
+.card:hover::before {
+    transform: scale(1);
+    background-color: rgba(0, 0, 0, 0.2);
+}
